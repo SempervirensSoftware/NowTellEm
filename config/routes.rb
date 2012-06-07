@@ -4,7 +4,7 @@ Feedbackly::Application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
-
-  match 'feedback' => 'feedback#new'
+  root :to => "feedback#new"
+  match "feedback" => "feedback#new"
 
 end
