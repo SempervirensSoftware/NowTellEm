@@ -20,6 +20,7 @@ group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
+  gem "rest-client", "~> 1.6.7"
 end
 
 # To use ActiveModel has_secure_password
