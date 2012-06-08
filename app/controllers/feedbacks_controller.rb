@@ -6,6 +6,9 @@ class FeedbacksController < ApplicationController
   def create    
       @feedback = Feedback.new(params[:feedback])
       if @feedback.save
+        subject = "Someone sent you feedback"
+        body = "Visit Now Tell'em to see what they said.\n\nhttp://nowtellem.com/secretcode"
+        UserMailer.send_email(@feedback.email,subject,body)
         redirect_to @feedback
       else
         render 'new'
