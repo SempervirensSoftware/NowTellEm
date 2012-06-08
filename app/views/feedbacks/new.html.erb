@@ -1,0 +1,23 @@
+
+<div class="row-fluid">
+	<div class="center span12">
+		<h1>You've got feedback. Now tell 'em!</h1>
+	</div>
+</div>
+<div class="row-fluid formContainer">
+	<div class="span4">&nbsp;</div>
+	<div class="left span4">
+		
+		<%= form_for(@feedback, :html => { :class => "well"} ) do |f| %>
+
+	      <%= f.label :email, 'Feedback for:' %>
+	      <%= f.text_field :email, :class => "span12", :placeholder => "co-worker@example.com" %>
+	
+	      <%= f.label :message, 'Message:' %>
+	      <%= f.text_area :message, :class => "span12", :rows => "3" %>
+	
+
+	      <%= f.submit "Submit", :class => "btn btn-large btn-primary" %>
+	    <% end %>
+	</div>	
+</div>
