@@ -41,7 +41,16 @@ input, textarea, select, .uneditable-input {
   margin-bottom: 15px;
 }
 
+form
+{
+	margin-top: 20px;
+}
+
 textarea {
   resize: vertical;
 }
 
+.form_well
+{
+	padding-right: 40px;
+}
