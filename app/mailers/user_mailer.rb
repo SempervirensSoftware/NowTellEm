@@ -2,7 +2,7 @@ require 'rest_client'
 require 'multimap'
 
 class UserMailer < ActionMailer::Base  
-  def send_email(email, subject, body)
+  def self.send_email(email, subject, body)
     data = Multimap.new
     data[:from] = "postmaster@app5080777.mailgun.org"
     data[:to] = email
