@@ -1,11 +1,15 @@
-class UserMailer < ActionMailer::Base
-  default from: "postmaster@app5080777.mailgun.org"
-  
+require 'rest_client'
+require 'multimap'
+
+class UserMailer < ActionMailer::Base  
   def send_email(email, subject, body)
-    mail(:to => email, :subject => subject) do |format|
-      format.text { render :text => body }
-      format.html { render :text => body }
-    end
-  end
-  
+    data = Multimap.new
+    data[:from] = "postmaster@app5080777.mailgun.org"
+    data[:to] = email
+    data[:subject] = subject
+    data[:text] = body
+    data[:html] = "<html>"+body+"</html>"
+    RestClient.post "https://api:key-18vu870tb37bjnfwtiyw7trxnutj-r56"\
+    "@api.mailgun.net/v2/app5080777.mailgun.org/messages", data
+  end  
 end

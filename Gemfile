@@ -21,6 +21,7 @@ group :assets do
   gem 'coffee-rails', '~> 3.2.1'
   gem 'uglifier', '>= 1.0.3'
   gem "rest-client", "~> 1.6.7"
+  gem "multimap", "~> 1.1.2"
 end
 
 # To use ActiveModel has_secure_password
