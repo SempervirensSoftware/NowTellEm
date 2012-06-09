@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Feedbackly</title>
+  <title>NowTellEm!</title>
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body class="center">
-
+<div class="navbar navbar-fixed-top" style="background-color: white; background-image: none; margin-top: 10px">
+        <a href="/"> <img src="/assets/NowTellEmLogo.png"></a>
+ </div>
 <%= yield %>
-
+<a href="http://twitter.com/home?status=@NowTellEm+">Feedback</a>
 </body>
 </html>
