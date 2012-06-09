@@ -7,8 +7,6 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
     pending_user = PendingUser.find_by_email(@user.email)
-    
-    debugger
 
     if (!pending_user || (pending_user.secret != params[:user_secret]))
       redirect_to root_url
