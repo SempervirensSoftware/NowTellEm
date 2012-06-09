@@ -22,7 +22,19 @@ class UsersController < ApplicationController
   end  
   
   def show
-    @user = User.find(params[:id])
+    session_id = session[:user_id]
+    if (!session_id)
+      redirect_to log_in_url
+      return
+    end
+
+    id = params[:id]
+    if (session_id.to_i != id.to_i )
+      redirect_to root_url
+      return
+    end
+    
+    @user = User.find(id)
     @feedbacks = Feedback.find_all_by_email(@user.email)
   end
   
