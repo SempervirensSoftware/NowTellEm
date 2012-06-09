@@ -7,10 +7,15 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="center">
-<div class="navbar navbar-fixed-top" style="background-color: white; background-image: none; margin-top: 10px">
-        <a href="/"> <img src="/assets/NowTellEmLogo.png"></a>
- </div>
-<%= yield %>
-<a href="http://twitter.com/home?status=@NowTellEm+">Feedback</a>
-</body>
+	<div class="left navbar navbar-fixed-top" style="background-color: white; background-image: none; margin-top: 10px">
+        <a href="/"><img src="/assets/NowTellEmLogo.png"></a>
+		<% if session[:user_id] %>
+			<a href="<%= log_out_url %>">Log out</a>
+		<% else %>
+			<a href="<%= log_in_url %>">Log in</a>
+		<% end %>
+	 </div>
+	<%= yield %>
+	<a href="http://twitter.com/home?status=@NowTellEm+">Feedback</a>
+	</body>
 </html>
