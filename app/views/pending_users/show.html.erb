@@ -15,13 +15,14 @@
 		  <% end %>
 
 		    <%= f.label :email %>
-		    <%= f.text_field :email, :placeholder => @user.email, :disabled => "true" %>
+		    <%= f.text_field :email, :value => @user.email, :readonly => "true" %>
 
 		    <%= f.label :password %>
 		    <%= f.password_field :password %>
 
 		    <%= f.label :password_confirmation %>
 		    <%= f.password_field :password_confirmation %>
+			<input type="hidden" id="user_secret" name="user_secret" value="<%= @secret %>" />
 
 		  	<%= f.submit :class => "btn btn-large btn-primary" %>
 		<% end %>
