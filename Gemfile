@@ -10,7 +10,6 @@ gem 'uuid'
 
 group :development, :test do
   gem 'sqlite3', '1.3.5'
-  gem 'ruby-debug'
 end
 
 group :production do

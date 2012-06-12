@@ -8,18 +8,36 @@ class PendingUser < ActiveRecord::Base
   validates :secret,  :presence => true,
                       :uniqueness => true
   
-  def self.create_and_notify(email)
+  def self.create_and_notify(email,feedback)
     secret = UUID.generate
     
     pending_user = PendingUser.new
     pending_user.email = email
     pending_user.secret = secret
+    link = "http://www.nowtellem.com/pending_users/#{pending_user.secret}"
     
     if (pending_user.save)    
-      subject = "Someone sent you feedback"
-      body = "Visit Now Tell'em to see what they said.\n\nhttp://nowtellem.com/pending_users/#{pending_user.secret}"
-      UserMailer.send_email(email,subject,body)
+      self.notify_new_feedback(email,feedback,link)
     end
+  end
+  
+  def self.notify_pending_user(email,feedback,secret) 
+    mysecret = secret
+    link = "http://www.nowtellem.com/pending_users/#{mysecret}"
+    self.notify_new_feedback(email,feedback,link)
+  end
+  
+  def self.notify_user(email,feedback,user_id)
+    myUserId = user_id
+    link = "http://www.nowtellem.com/users/#{myUserId}"
+    self.notify_new_feedback(email,feedback,link)
+  end
+  
+  def self.notify_new_feedback(email,feedback,link)
+    subject = "You have new feedback"
+    body = "\"#{feedback}\"\n\nDisagree? Visit NowTellEm to rate their feedback.\n#{link}"
+    htmlBody = "<html>\"#{feedback}\"<br /><br />Disagree? Visit NowTellEm to rate their feedback.<br />#{link}</html>"
+    UserMailer.send_email(email,subject,body,htmlBody)
   end
   
 end
