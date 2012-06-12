@@ -31,6 +31,14 @@ section {
   text-align: right;
 }
 
+.hidden {
+	visibility:hidden;
+}
+
+.removed {
+	display:none;
+}
+
 /* forms */
 
 input, textarea, select, .uneditable-input {
@@ -39,6 +47,12 @@ input, textarea, select, .uneditable-input {
   padding: 10px;
   height: auto;
   margin-bottom: 15px;
+}
+
+input.error, textarea.error, select.error
+{
+	border: 1px solid red;
+	margin-bottom: 0px;
 }
 
 form
@@ -53,4 +67,15 @@ textarea {
 .form_well
 {
 	padding-right: 40px;
+}
+
+div.error, span.error, p.error
+{
+	color: red;
+}
+
+.help-block.error
+{
+	margin-left:	1px;
+	margin-bottom:	10px;
 }
