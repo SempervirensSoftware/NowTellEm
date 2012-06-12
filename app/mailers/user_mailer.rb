@@ -4,12 +4,12 @@ require 'multimap'
 class UserMailer < ActionMailer::Base  
   def self.send_email(email, subject, body, htmlBody)
     data = Multimap.new
-    data[:from] = "NowTellEm@app5080777.mailgun.org"
+    data[:from] = "NowTellEm <notify@nowtellem.com>"
     data[:to] = email
     data[:subject] = subject
     data[:text] = body
     data[:html] = htmlBody
     RestClient.post "https://api:key-18vu870tb37bjnfwtiyw7trxnutj-r56"\
-    "@api.mailgun.net/v2/app5080777.mailgun.org/messages", data
+    "@api.mailgun.net/v2/nowtellem.com/messages", data
   end  
 end
