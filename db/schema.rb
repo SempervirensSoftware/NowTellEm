@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120608225141) do
+ActiveRecord::Schema.define(:version => 20120613003334) do
 
   create_table "feedbacks", :force => true do |t|
     t.string   "email"
@@ -31,6 +31,17 @@ ActiveRecord::Schema.define(:version => 20120608225141) do
 
   add_index "pending_users", ["email"], :name => "index_pending_users_on_email", :unique => true
   add_index "pending_users", ["secret"], :name => "index_pending_users_on_secret", :unique => true
+
+  create_table "unsubscribes", :force => true do |t|
+    t.string   "email"
+    t.string   "token"
+    t.boolean  "unsubscribed", :default => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
+  end
+
+  add_index "unsubscribes", ["email"], :name => "index_unsubscribes_on_email", :unique => true
+  add_index "unsubscribes", ["token"], :name => "index_unsubscribes_on_token", :unique => true
 
   create_table "users", :force => true do |t|
     t.string   "email"

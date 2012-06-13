@@ -35,8 +35,8 @@ class PendingUser < ActiveRecord::Base
   
   def self.notify_new_feedback(email,feedback,link)
     subject = "You have new feedback"
-    body = "\"#{feedback}\"\n\nDisagree? Visit NowTellEm to rate their feedback.\n#{link}"
-    htmlBody = "<html>\"#{feedback}\"<br /><br />Disagree? Visit NowTellEm to rate their feedback.<br />#{link}</html>"
+    body = "\"#{feedback}\"\n\nVisit NowTellEm to see what people think of your work.\n#{link}"
+    htmlBody = "<html>\"#{feedback}\"<br /><br />Visit NowTellEm to see what people think of your work.<br />#{link}</html>"
     UserMailer.send_email(email,subject,body,htmlBody)
   end
   
