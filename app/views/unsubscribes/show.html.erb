@@ -1,0 +1,4 @@
+<div class="left well">
+	<p>Alrighty, <%= @unsubscribe.email %> won't receive any more feedback.</p><br />
+	<p><%= link_to "Resubscribe here", :controller => "unsubscribes", :action => "resubscribe", :token => @unsubscribe.token %></p>
+</div>
