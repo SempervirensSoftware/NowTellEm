@@ -1,13 +1,7 @@
 <h2>Feedback for <%= @user.email %></h2>
 <br/>
 <div class="row">	
-	<div class="span9 offset3">
-		<table class="table">
-		  <% @feedbacks.each do |feedback| %>
-		    <tr><td>
-				<%= feedback.message %>
-		    </td></tr>
-		  <% end %>
-		</table>
+	<div class="span8 offset2">
+		<%= render :partial => '/feedbacks/list.html.erb' %>
 	</div>
 </div>

@@ -1,0 +1,12 @@
+<%= form_for(@feedback, :html => { :class => "well form_well", :onSubmit => "return validateFeedback()"} ) do |f| %>
+
+  <%= f.label :email, 'Feedback for:' %>
+  <%= f.text_field :email, :autofocus => "autofocus", :placeholder => "co-worker@example.com", :onChange => "validateFeedbackEmail();" %>
+  <p id="feedback_email_error" class="help-block error removed"></p>
+
+  <%= f.label :message, 'Message:' %>
+  <%= f.text_area :message, :rows => "3", :onChange => "validateFeedbackMessage();" %>
+  <p id="feedback_message_error" class="help-block error removed"></p>
+
+  <%= f.submit "Submit", :class => "btn btn-large btn-primary" %>
+<% end %>
