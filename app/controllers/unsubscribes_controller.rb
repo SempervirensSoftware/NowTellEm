@@ -1,4 +1,3 @@
-
 class UnsubscribesController < ApplicationController
   def show
     @unsubscribe = Unsubscribe.find_by_token(params[:token])

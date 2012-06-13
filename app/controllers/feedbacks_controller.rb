@@ -5,6 +5,7 @@ class FeedbacksController < ApplicationController
   
   def create    
       @feedback = Feedback.new(params[:feedback])
+      
       if @feedback.save
         pending_user = PendingUser.find_by_email(@feedback.email)
         user = User.find_by_email(@feedback.email)
