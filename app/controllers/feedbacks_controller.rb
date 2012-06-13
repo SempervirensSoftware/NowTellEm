@@ -27,5 +27,9 @@ class FeedbacksController < ApplicationController
   def show
     @feedback = Feedback.find(params[:id])    
   end
+  
+  def about
+    
+  end
 
 end

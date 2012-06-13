@@ -21,19 +21,15 @@
 	</script>	
 </head>
 <body>
-	<div class="navbar">
-	  <div class="navbar-inner left">
-		<a href="/"><img src="/assets/banner-right.png"></a>	     
-	  </div>
-	</div>
-       	
+	<%= render :partial => '/layouts/header.html.erb' %>
+	
 	<% if mobile_device? %>
 	    <div class="container-fluid">
 	<% else %>
 	    <div class="container">
 	<% end %>	
 		<%= yield %>
-		<br/><a href="http://twitter.com/home?status=@NowTellEm+">Feedback</a>
+		<%= render :partial => '/layouts/footer.html.erb' %>
 	</div>	
 </body>
 </html>

@@ -9,6 +9,7 @@ Feedbackly::Application.routes.draw do
   resources :users
   resources :sessions
   
+  get "about" => "feedbacks#about", :as => "about"
   get "log_out" => "sessions#destroy", :as => "log_out"
   get "log_in" => "sessions#new", :as => "log_in"
   get "pending_users/:secret" => "pending_users#show"
