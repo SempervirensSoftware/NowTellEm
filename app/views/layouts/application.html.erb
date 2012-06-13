@@ -20,16 +20,13 @@
 	  })();
 	</script>	
 </head>
-<body class="center">
-	<div class="left navbar navbar-fixed-top hidden-phone" style="background-color: white; background-image: none; margin-top: 10px">
-        <a href="/"><img src="/assets/NowTellEmLogo.png"></a>
-		<% if session[:user_id] %>
-			<a href="<%= log_out_url %>">Log out</a>
-		<% else %>
-			<a href="<%= log_in_url %>">Log in</a>
-		<% end %>
+<body>
+	<div class="navbar">
+	  <div class="navbar-inner left">
+		<a href="/"><img src="/assets/banner-right.png"></a>	     
+	  </div>
 	</div>
-	
+       	
 	<% if mobile_device? %>
 	    <div class="container-fluid">
 	<% else %>
