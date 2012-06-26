@@ -29,8 +29,4 @@ class FeedbacksController < ApplicationController
     @feedback = Feedback.find(params[:id])    
   end
   
-  def about
-    
-  end
-
 end
