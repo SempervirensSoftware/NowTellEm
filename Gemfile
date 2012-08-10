@@ -25,16 +25,3 @@ group :assets do
   gem "rest-client", "~> 1.6.7"
   gem "multimap", "~> 1.1.2"
 end
-
-# To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
-
-# Use unicorn as the web server
-# gem 'unicorn'
-
-# Deploy with Capistrano
-# gem 'capistrano'
-
-# To use debugger
-# gem 'ruby-debug'
-

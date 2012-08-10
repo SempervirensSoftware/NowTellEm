@@ -1,5 +1,6 @@
 class Feedback < ActiveRecord::Base
   attr_accessible :email, :message
+  has_many :comments, :dependent => :destroy
 
   before_save { |feedback| feedback.email = email.downcase }  
   

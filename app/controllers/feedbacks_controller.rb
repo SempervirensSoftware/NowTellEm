@@ -19,14 +19,50 @@ class FeedbacksController < ApplicationController
           #user exists (has logged in)
           PendingUser.notify_user(user.email,@feedback.message,user.id)
         end
-        redirect_to @feedback
+        redirect_to confirmation_path(@feedback.id)
       else
         render 'new'
       end
   end
   
+  def confirm
+     @feedback = Feedback.find(params[:id])    
+      if (@feedback)
+        @comments = @feedback.comments
+      end
+  end
+  
   def show
     @feedback = Feedback.find(params[:id])    
+    if (@feedback)
+      @comments = @feedback.comments
+    end
+  end
+  
+  def edit
+    session_id = session[:user_id]
+    
+    # make sure they are logged in
+    if (!session_id)
+      redirect_to log_in_url
+      return
+    end
+
+    @feedback = Feedback.find(params[:id])
+    user = User.find(session_id)
+
+    # make sure they are accessing their own feedback
+    if (@feedback.email != user.email )
+      if user
+        redirect_to user
+      else
+        redirect_to log_out_url
+      end
+      return
+    end
+    
+    @comment = @feedback.comments.create
+    
   end
   
 end

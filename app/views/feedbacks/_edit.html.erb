@@ -1,0 +1,16 @@
+<div class="well">
+	Message:
+	<br/>
+	<%= @feedback.message %>
+
+	<br/>
+	<%= form_for(@comment, :html => { :class => "form_well"} ) do |f| %>
+
+		<%= f.label :content, 'Reply:' %>
+		<%= f.text_area :content, :rows => "3", :onChange => "validateFeedbackMessage();" %>
+		<p id="comment_content_error" class="help-block error removed"></p>
+		
+		<%= f.hidden_field :feedback_id %>
+		<%= f.submit "Reply", :class => "btn btn-large btn-primary" %>
+	<% end %>
+</div>

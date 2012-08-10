@@ -13,6 +13,15 @@ function validateFeedback()
 	return true;
 }
 
+function validateFeedbackReply()
+{	
+	if (!validateReplyContent())
+	{
+		return false;
+	}
+
+	return true;
+}
 
 function validateFeedbackEmail()
 {
@@ -53,6 +62,22 @@ function validateFeedbackMessage()
 		$("#feedback_message").addClass("error");	
 		$("#feedback_message_error").html("A message is required");
 		$("#feedback_message_error").removeClass("removed");
+		return false;
+	}
+}
+
+function validateReplyContent()
+{
+	if ($("#comment_content").val()) {
+		$("#comment_content").removeClass("error");
+		$("#comment_content_error").addClass("removed");
+		return true;
+ 	}
+	else
+	{			
+		$("#comment_content").addClass("error");	
+		$("#comment_content_error").html("A message is required");
+		$("#comment_content_error").removeClass("removed");
 		return false;
 	}
 }
