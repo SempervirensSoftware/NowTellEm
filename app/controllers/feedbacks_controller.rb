@@ -65,4 +65,9 @@ class FeedbacksController < ApplicationController
     
   end
   
+  def update
+    @feedback = Feedback.find(params[:id])
+    @feedback.update_attributes(params[:feedback])
+    redirect_to confirmation_path(@feedback.id)
+  end
 end

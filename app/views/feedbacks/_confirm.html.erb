@@ -17,9 +17,15 @@
 	<%  end
 	end %>
 
-	<br/><br/><br/>
-	Grab their email!!!
-
+	<% if !@feedback.sender_email %>
+		<br/><br/><br/>
+		<%= form_for(@feedback, :html => { :class => "form_well"} ) do |f| %>
+			<%= f.label :sender_email, 'If you want to allow them to respond enter your email below. Your email will always remain anonymous.' %>
+	  		<%= f.text_field :sender_email, :autofocus => "autofocus", :placeholder => "co-worker@example.com", :onChange => "validateFeedbackEmail();" %>
+			
+			<%= f.submit "Submit", :class => "btn btn-large btn-primary" %>
+		<% end %>
+	<% end %>
 	<br/><br/><br/>
 	<div class="center">
 		<a href="<%= root_url %>" style="color:blue">Send more feedback</a>	
